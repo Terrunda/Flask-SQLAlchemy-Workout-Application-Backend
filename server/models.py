@@ -16,7 +16,7 @@ class Exercise(db.Model):
     category = db.Column(db.String)
     equipment_needed = db.Column(db.Boolean)
 
-    exercise_link = db.relationship("Workout", back_populates='workout_link')
+    exercise_entries = db.relationship("WorkoutExercises", back_populates='workout')
 
 
 # Workout table
@@ -28,7 +28,7 @@ class Workout(db.Model):
     duration = db.Column(db.Integer)
     notes = db.Column(db.Text)
 
-    workout_link = db.relationship("Exercise", back_populates='exercise')
+    workout_entries = db.relationship("WorkoutExercises", back_populates='exercise')
 
 # Workout exercises table (junction table for many to many relationship)
 class WorkoutExercises(db.Model):
@@ -42,6 +42,6 @@ class WorkoutExercises(db.Model):
     duration_seconds = db.Column(db.Integer)
 
     # Relationship objects
-    workout = db.relationship("Workout", back_populates="exercise_link")
-    exercise = db.relationship("Exercise", back_populates="workout_link")
+    workout = db.relationship("Workout", back_populates="exercise_entries")
+    exercise = db.relationship("Exercise", back_populates="workout_entries")
 
