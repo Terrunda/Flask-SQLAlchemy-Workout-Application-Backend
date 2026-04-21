@@ -16,7 +16,7 @@ class Exercise(db.Model):
     category = db.Column(db.String)
     equipment_needed = db.Column(db.Boolean, nullable=False)
 
-    exercise_entries = db.relationship("WorkoutExercises", back_populates='workout')
+    workout_entries = db.relationship("WorkoutExercises", back_populates='exercise')
 
     @validates('name')
     def validate_name(self, key, value):
@@ -40,7 +40,7 @@ class Workout(db.Model):
             raise ValueError("Duration of workout time cannot be less than zero. Please select a positive value.")
         return value
 
-    workout_entries = db.relationship("WorkoutExercises", back_populates='exercise')
+    exercise_entries = db.relationship("WorkoutExercises", back_populates='workout')
 
 # Workout exercises table (junction table for many to many relationship)
 class WorkoutExercises(db.Model):

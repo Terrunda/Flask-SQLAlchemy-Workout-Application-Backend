@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from app import app
-from models import Workout, WorkoutExercises, Exercise
-from datetime import date.
+from models import Workout, WorkoutExercises, Exercise, db
+from datetime import date
 
 with app.app_context():
     # reset data and add new example data, committing to db
