@@ -2,3 +2,4 @@
 /DETAILS.md
 instance/
 migrations/
+__pycache__/

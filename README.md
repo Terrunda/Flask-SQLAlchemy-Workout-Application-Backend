@@ -31,7 +31,13 @@ pipenv install
 pipenv shell
 ```
 
+### 2. Change the directory to the server
+```bash
+cd server
+```
+
 ### 2. Set up the database
+Run these commands in the terminal
 ```bash
 flask db init
 flask db migrate -m "initial migration"
